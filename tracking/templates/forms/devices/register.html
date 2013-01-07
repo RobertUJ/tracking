@@ -1,0 +1,22 @@
+{% extends "main/main.html" %}
+
+{% block title %}Device register{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<form action="" method="POST" name="frmRegister" id='id_frmRegister'>
+				{% csrf_token %}
+					<fieldset>
+						<legend>Device</legend>
+						{{ form.as_p }}
+					</fieldset>
+				<input class="btn btn-success" type="submit" value="Add Device">
+			</form>
+		</div>
+	</div>
+</div>
+	
+{% endblock content %}

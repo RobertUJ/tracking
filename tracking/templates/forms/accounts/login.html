@@ -1,0 +1,36 @@
+{% extends "main/main.html" %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<h1 class="span12">Login</h1>
+		<div class="form-form">
+			<div class="span6">
+			<form action="." method="POST">
+				{% csrf_token %}
+				{{ msg }}
+				{{ form.as_p }}
+				{# <a class="forgot" href="#">Forgot your password?</a> #}
+				{# <a class="register" href="#">Register</a> #}
+				<input class="red" type="submit" value="Login">
+				<input type="hidden" name="next" value="{{ next|escape }}" >
+			</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block footer_extrajs %}
+
+
+	<script type="text/javascript">
+	$(document).on("ready",function(e){
+		$("#id_username").focus();
+	});
+	</script>	
+
+	
+{% endblock footer_extrajs %}

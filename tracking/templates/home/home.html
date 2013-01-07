@@ -1,0 +1,20 @@
+{% extends "main/main.html" %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="span12">
+	        {% if user.is_authenticated %}
+   				<a clas="btn" href="{% url add_device_view %}">Add Devices</a> |
+   				<a clas="btn" href="{% url logout_view %}">Logout</a>
+	        {% else %}
+   				<a clas="btn" href="{% url login_view %}">Login</a> |
+   				<a clas="btn" href="{% url register_view %}">Account Register</a>
+	        {% endif %}                
+
+		</div>
+	</div>
+</div>	
+{% endblock content %}

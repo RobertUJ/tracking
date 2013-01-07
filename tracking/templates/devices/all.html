@@ -1,0 +1,39 @@
+{% extends "main/main.html" %}
+
+{% block title %}Device register{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<br>
+			<br>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th> <input type="checkbox" name="all_check" id="id_check"> </th>
+						<th>Serial Number</th>
+						<th>Model</th>
+						<th>Status</th>
+						<th>Installed in our workshop</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for d in devices  %}
+					<tr>
+						<td><input type="checkbox" name="id" class="cl_check" value="{{d.id}}"> </td>
+						<td>{{d.serial_number}}</td>
+						<td>{{d.model}}</td>
+						<td>{{d.status}}</td>
+						<td>{{d.installed_workshop}}</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+			
+		</div>
+	</div>
+</div>
+	
+{% endblock content %}

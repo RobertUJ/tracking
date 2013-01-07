@@ -1,20 +1,24 @@
 # Django settings for tracking project.
+#encoding:utf-8
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+import os
+PATH_PROJECT = os.path.dirname(os.path.realpath(__file__))
+
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Roberto Urita Jimenez -- @robertuj', 'roberto@newemage.com'),
 )
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'tracking',                      # Or path to database file if using sqlite3.
+        'USER': 'root',                      # Not used with sqlite3.
+        'PASSWORD': 'newemage',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -45,12 +49,12 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__),'static/media/'))
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -64,6 +68,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
+    os.path.join(PATH_PROJECT,'static'),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -103,10 +108,14 @@ ROOT_URLCONF = 'tracking.urls'
 WSGI_APPLICATION = 'tracking.wsgi.application'
 
 TEMPLATE_DIRS = (
+    os.path.join(os.path.dirname(__file__),'templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
+
+AUTH_PROFILE_MODULE = 'tracking.apps.users.models.UserProfile'
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -115,10 +124,16 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admin',
+    'django.contrib.admindocs',
+    # Our apps
+    'tracking.apps.main',
+    'tracking.apps.users',
+    'tracking.apps.devices',
+    'tracking.apps.contacts',
+    'tracking.apps.alerts',
+    # Libs apps
+    'sorl.thumbnail',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -149,3 +164,11 @@ LOGGING = {
         },
     }
 }
+
+
+# Configuracion de servidor Gmail
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'roberto@newemage.com'
+EMAIL_HOST_PASSWORD = 'aline0228'
+EMAIL_USE_TLS = True
