@@ -1,0 +1,49 @@
+{% extends "main/main.html" %}
+
+{% block title %}Contacts{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<br>
+			<br>
+			{# <a class="btn" href="{% url add_device_view %}">Add Contact</a> #}
+			<hr>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th><input type="checkbox" name="all_check" id="id_check"> </th>
+						<th>Device</th>
+						<th>Name</th>
+						<th>Last_name</th>
+						<th>Email</th>
+						<th>Phone Number</th>
+						<th>Mobile Phone</th>
+						<th>relation</th>
+						<th>primary</th>						
+					</tr>
+				</thead>
+				<tbody>
+				{% for c in contact %}
+					<tr>
+						<td><input type="checkbox" name="id" class="cl_check" value="{{c.id}}"> </td>
+						<td>{{c.device}}</td>
+						<td>{{c.name}}</td>
+						<td>{{c.last_name}}</td>
+						<td>{{c.email}}</td>
+						<td>{{c.phone_number}}</td>
+						<td>{{c.mobile_phone}}</td>
+						<td>{{c.relation}}</td>
+						<td>{{c.primary}}</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+			
+		</div>
+	</div>
+</div>
+	
+{% endblock content %}

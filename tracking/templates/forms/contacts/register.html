@@ -1,0 +1,24 @@
+{% extends "main/main.html" %}
+
+{% block title %}Contact register{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<form action="" method="POST" name="frmRegister" id='id_frmRegister'>
+				{% csrf_token %}
+				
+					<fieldset>
+						<legend>Contact</legend>
+						{{ form.as_p }}
+					</fieldset>
+				
+				<input class="btn btn-success" type="submit" value="Register Contact">
+			</form>
+		</div>	
+	</div>
+</div>
+	
+{% endblock content %}

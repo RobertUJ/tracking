@@ -1,6 +1,6 @@
 {% extends "main/main.html" %}
 
-{% block title %}Device register{% endblock title %}
+{% block title %}Devices{% endblock title %}
 
 {% block content %}
 
@@ -9,24 +9,32 @@
 		<div class="span12">
 			<br>
 			<br>
+			<a class="btn" href="{% url add_device_view %}">Add Devices</a>
+			<hr>
 			<table class="table table-bordered">
 				<thead>
 					<tr>
-						<th> <input type="checkbox" name="all_check" id="id_check"> </th>
+						<th><input type="checkbox" name="all_check" id="id_check"> </th>
+						<th>Name</th>
 						<th>Serial Number</th>
 						<th>Model</th>
 						<th>Status</th>
 						<th>Installed in our workshop</th>
+						<th>Add Contact</th>
+						<th>View Contacts</th>
 					</tr>
 				</thead>
 				<tbody>
 				{% for d in devices  %}
 					<tr>
 						<td><input type="checkbox" name="id" class="cl_check" value="{{d.id}}"> </td>
+						<td>{{d.name}}</td>
 						<td>{{d.serial_number}}</td>
 						<td>{{d.model}}</td>
 						<td>{{d.status}}</td>
 						<td>{{d.installed_workshop}}</td>
+						<td> <a class="btn" href="{% url add_contact_view %}">Add contact</a> </td>
+						<td><a class="btn" href="{% url contacts_view %}">View contact</a></td>
 					</tr>
 				{% endfor %}
 				</tbody>

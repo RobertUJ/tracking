@@ -13,4 +13,5 @@ urlpatterns = patterns('',
     url(r'^',include('tracking.apps.main.urls')),
     url(r'^',include('tracking.apps.users.urls')),
     url(r'^',include('tracking.apps.devices.urls')),
+    url(r'^',include('tracking.apps.contacts.urls')),
 )
