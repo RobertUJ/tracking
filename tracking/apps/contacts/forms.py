@@ -12,4 +12,4 @@ from django.contrib.auth.models import User
 class frmContact(forms.ModelForm):
 	class Meta:
 		model = contact
-		exclude =['user','status',]
+		exclude =['user','status','device']
