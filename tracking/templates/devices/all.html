@@ -9,9 +9,9 @@
 		<div class="span12">
 			<br>
 			<br>
-			<a class="btn" href="{% url add_device_view %}">Add Devices</a>
-			<hr>
-			<table class="table table-bordered">
+			<a class="btn add-devices" href="{% url add_device_view %}">Add Devices</a>
+			
+			<table class="table table-bordered tabla-devices">
 				<thead>
 					<tr>
 						<th><input type="checkbox" name="all_check" id="id_check"> </th>
@@ -33,8 +33,8 @@
 						<td>{{d.model}}</td>
 						<td>{{d.status}}</td>
 						<td>{{d.installed_workshop}}</td>
-						<td> <a class="btn" href="{% url add_contact_view %}">Add contact</a> </td>
-						<td><a class="btn" href="{% url contacts_view %}">View contact</a></td>
+						<td> <a class="btn add-contact" href="{% url add_contact_view %}">Add contact</a> </td>
+						<td><a class="btn view-devices" href="{% url contacts_view %}">View contact</a></td>
 					</tr>
 				{% endfor %}
 				</tbody>

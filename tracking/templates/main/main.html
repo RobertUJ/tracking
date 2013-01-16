@@ -9,17 +9,66 @@
 
         <link rel="stylesheet" href="{{ STATIC_URL }}css/normalize.min.css">
         <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ STATIC_URL }}css/main.css">        
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/main.css">  
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/layerslider.css" type="text/css"> 
+        
         {% block extra_css %}{% endblock extra_css %}
 
         <script src="{{ STATIC_URL }}js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="{{ STATIC_URL }}js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
+        <script src="{{ STATIC_URL }}js/jquery-easing-1.3.js" type="text/javascript"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-        {% block content %}{% endblock content %}
+       
+   <header>
+    <!-- Login Redes sociales  -->
+    
+    <div class="container">
+    <div class="row">
+        <div class="span2 login offset8">
+            {% if user.is_authenticated %}
+                <a  href="{% url device_view %}">Devices</a> |
+
+                <a  href="{% url logout_view %}">Logout</a>
+            {% else %}
+                <a  href="{% url login_view %}">Login</a> |
+                <a  href="{% url register_view %}">Register</a>
+            {% endif %}                
+
+        </div>
+        <div class="span2 sociales">
+            <a href="#" class="fb">Facebook</a>
+            <a href="#" class="tw">Twitter</a>
+            <a href="#" class="gplus">Google+</a>
+            <a href="#" class="envelope">Mail</a>
+        </div>
+     </div>
+    </div>
+    <!--  /login block  -->
+
+        <div class="container">
+            <div class="row">
+                <div class="span3">
+                    <a href="#" class="logo">Logo</a>
+                </div>
+                <div class="span5 offset4">
+                    <nav>
+                        <ul class="menu">
+                            <li class="home-link"><a href="#">Home</a></li>
+                            <li> <a href="#">How it Works</a></li>
+                            <li> <a href="#">FAQ</a></li>
+                            <li> <a href="#">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+ {% block content %}{% endblock content %}
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
@@ -36,5 +85,71 @@
             g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
+    <!-- Footer Contenido -->
+    <div id="bottom-sombra">
+    
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="span3 separador">
+                    <h4 class="mod-azul">Recomended links</h4>
+                    <!--  Test contenido placeholder  -->
+                        <ul class="footer-list">
+                            <li><a class="recomended-links" href="#">Lorem ipsum dolor sit amet.</a></li>
+                            <li><a class="recomended-links" href="#">Llamcorper eget lobortis ut.</a></li>
+                            <li><a class="recomended-links" href="#">Maecenas et facilisis sapien.</a></li>
+                            <li><a class="recomended-links" href="#">Pellentesque id, egestas nec orci.</a></li>
+                            <li><a class="recomended-links" href="#">Etiam tincidunt.</a></li>
+                        </ul>
+                    <!-- /Test contenido  -->
+                </div>
+                <div class="span3 separador">
+                    <h4 class="mod-verde">Follow us</h4>
+                      <!--  Test contenido placeholder  -->
+                        <ul class="footer-list">
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec orci mi.</li>
+                            <li>Llamcorper eget lobortis ut, pretium vitae nisi.</li>
+                            <li>Maecenas et facilisis sapien. Suspendisse mi mi, venenatis varius.</li>
+                        </ul>
+                        <div class="footer-sociales">
+            <a href="#" class="fb-footer">Facebook</a>
+            <a href="#" class="tw-footer">Twitter</a>
+            <a href="#" class="gplus-footer">Google+</a>
+            <a href="#" class="envelope-footer">Mail</a>
+        </div>
+                    <!-- /Test contenido  -->
+                </div>
+                <div class="span3 separador">
+                    <h4 class="mod-azul">Contact us</h4>
+                      <!--  Test contenido placeholder  -->
+                       <p class="contactus">
+                        <b>Address:</b>
+                        82. Hajduk Velkova 75018<br>
+                        Paris, France<br><br>
+                        <b>Phone:</b>
+                        +33 (1) 22 33 44<br><br>
+                        <b>Fax:</b>
+                        +33 (1) 22 33 44<br><br>
+                        <b>Web:</b> http://www.701010.com<br>
+                        <b>E-mail:</b> info@701010.com<br>
+                       </p>
+                    <!-- /Test contenido  -->
+                </div>
+                <div class="span3 separador-no">
+                    <h4 class="mod-verde">Latest news</h4>
+                      <!--  Test contenido placeholder  -->
+                        <ul class="footer-list">
+                            <li><a class="latest-news" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec orci mi.</a></li>
+                            <li><a class="latest-news" href="#">Llamcorper eget lobortis ut, pretium vitae nisi.</a></li>
+                            <li><a class="latest-news" href="#">Maecenas et facilisis sapien. Suspendisse mi mi, venenatis varius.</a></li>
+                            <li><a class="latest-news" href="#">Pellentesque id, egestas nec orci. In hac habitasse platea dictumst.</a></li>
+                            <li><a class="latest-news" href="#">Etiam tincidunt tincidunt metus pretium viverra.</a></li>
+                        </ul>
+                    <!-- /Test contenido  -->
+                </div>
+            </div>
+        </div>
+    </footer>
     </body>
 </html>
