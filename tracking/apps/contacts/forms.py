@@ -17,4 +17,4 @@ class frmContact(forms.ModelForm):
 
 	class Meta:
 		model = contact
-		exclude =['user','status',]
+		exclude =['user','status','device']
